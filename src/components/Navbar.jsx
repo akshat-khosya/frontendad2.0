@@ -29,7 +29,12 @@ function Navbars(props){
         }
             axios.post('https://admissionportaliii.herokuapp.com/profile',Signin).then(function(response){
                 if(response.data.user===true){
-                  setUserName(response.data.name);   
+                  if(response.data.name){
+                    setUserName(response.data.name); 
+                  }else{
+                    //nothing
+                  }
+                   
                 }else{
                     history.push("/");
                 }
